@@ -1,0 +1,6 @@
+@EligibilityScoringService_HostAddress = http://localhost:5268
+
+GET {{EligibilityScoringService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

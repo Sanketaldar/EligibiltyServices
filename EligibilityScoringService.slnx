@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="EligibilityScoring.Application/EligibilityScoring.Application.csproj" />
+  <Project Path="EligibilityScoring.Domain/EligibilityScoring.Domain.csproj" />
+  <Project Path="EligibilityScoring.Infrastructure/EligibilityScoring.Infrastructure.csproj" />
+  <Project Path="EligibilityScoringService/EligibilityScoringService.Api.csproj" />
+</Solution>
