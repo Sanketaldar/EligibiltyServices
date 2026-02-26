@@ -26,7 +26,7 @@ namespace EligibilityScoring.Infrastructure.ExternalServices
                 }
 
                 var request = new { CustomerId = customerId, PanNo = panNo };
-                var postResponse = await httpClient.PostAsJsonAsync($"{baseUrl}/api/v1/cibil/check", request);
+                var postResponse = await httpClient.PostAsJsonAsync($"{baseUrl}/api/v1/cibil/Generate", request);
 
                 if (postResponse.IsSuccessStatusCode)
                 {
