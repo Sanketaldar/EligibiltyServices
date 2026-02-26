@@ -11,7 +11,7 @@ namespace EligibilityScoring.Infrastructure.ExternalServices
     public class CreditReportingClient(HttpClient httpClient, IConfiguration configuration) : ICreditReportingClient
     {
         private readonly HttpClient httpClient = httpClient;
-        private readonly string baseUrl = configuration["ExternalServices:CreditReportingApi"] ?? "https://localhost:7167";
+        private readonly string baseUrl = configuration["ExternalServices:CreditReportingApi"] ?? "https://creditservices-dhf2avgkhqdwdabq.canadacentral-01.azurewebsites.net";
 
         public async Task<int> GetCibilScoreAsync(int customerId, string panNo)
         {
