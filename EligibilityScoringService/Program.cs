@@ -122,17 +122,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
 
-// 5. Use Rate Limiting
+app.UseCors("AllowAngular");   // ✅ CORS should be here
+
 app.UseRateLimiter();
 
-app.UseCors("AllowAngular");
-
 app.UseAuthentication();
-
 app.UseAuthorization();
-app.MapControllers();
 
-app.Run();
+app.MapControllers();
