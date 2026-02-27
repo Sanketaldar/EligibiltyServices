@@ -22,8 +22,8 @@ namespace EligibilityScoringService.Middleware
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An unhandled exception has occurred.");
-                await HandleExceptionAsync(context, ex);
+                var realError = ex.InnerException?.ToString() ?? ex.ToString();
+                await context.Response.WriteAsync(realError);
             }
         }
 
@@ -36,7 +36,7 @@ namespace EligibilityScoringService.Middleware
             {
                 StatusCode = context.Response.StatusCode,
                 Message = "Internal Server Error from the custom middleware.",
-                Detail = exception.Message // In production, don't send the full exception message
+                Detail = exception.InnerException != null ? $"{exception.Message} -> Inner Exception: {exception.InnerException.Message}" : exception.Message
             };
 
             return context.Response.WriteAsync(JsonSerializer.Serialize(response));
