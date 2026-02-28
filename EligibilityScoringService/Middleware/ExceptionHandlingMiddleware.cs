@@ -22,8 +22,8 @@ namespace EligibilityScoringService.Middleware
             }
             catch (Exception ex)
             {
-                var realError = ex.InnerException?.ToString() ?? ex.ToString();
-                await context.Response.WriteAsync(realError);
+                _logger.LogError(ex, "An unhandled exception occurred.");
+                await HandleExceptionAsync(context, ex);
             }
         }
 
