@@ -132,3 +132,4 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.Run();  // MUST exist
